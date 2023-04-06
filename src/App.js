@@ -6,10 +6,25 @@ import './App.css';
 function App() {
   const [startDate, setStartDate] = useState(new Date());
 
-  const remainingDays =  startDate.getMonth() + 1
+  const getDaysInMonth = (year, month) => {
+    return new Date(year, month, 0).getDate();
+  } 
+
+  const currentDate = startDate.getDate()
+  const currentMonth =  startDate.getMonth() + 1
+  const currentYear = startDate.getFullYear()
+
+  const daysInCurrentMonth = getDaysInMonth(currentYear, currentMonth)
+
+  const ratio = currentDate / daysInCurrentMonth
+  
 
   console.log({startDate})
-  console.log({remainingDays})
+  console.log({currentDate})
+  console.log({currentMonth})
+  console.log({currentYear})
+  console.log({daysInCurrentMonth})
+  console.log({ratio})
 
   return (
     <div className="App">
