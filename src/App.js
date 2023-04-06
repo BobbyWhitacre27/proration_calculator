@@ -5,9 +5,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src="https://cdn-icons-png.flaticon.com/512/5351/5351550.png" className="App-logo" alt="logo" />
+        <h1>Rent Proration Calculator</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This will be a calculator used to determine rent proration.
         </p>
         <a
           className="App-link"
