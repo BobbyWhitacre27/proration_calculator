@@ -50,7 +50,6 @@ function App() {
     }
   }
 
-
     // console.log({ startDate })
     // console.log({ currentDate })
     // // console.log({currentMonth})
