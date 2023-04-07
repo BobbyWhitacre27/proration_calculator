@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#answerDiv{
+  border: solid;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 25px;
 }

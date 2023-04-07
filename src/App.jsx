@@ -13,15 +13,20 @@ function App() {
     return new Date(year, month, 0).getDate();
   }
 
-  const currentDate = startDate.getDate()
-  const currentMonth = startDate.getMonth() + 1
-  const currentYear = startDate.getFullYear()
+  const selectedDate = startDate.getDate()
+  const selectedMonth = startDate.getMonth() + 1
+  const selectedYear = startDate.getFullYear()
 
-  const daysInCurrentMonth = getDaysInMonth(currentYear, currentMonth)
+  const daysInCurrentMonth = getDaysInMonth(selectedYear, selectedMonth)
 
-  const moveInRatio = (daysInCurrentMonth + 1 - currentDate) / daysInCurrentMonth
+  const moveInRatio = (daysInCurrentMonth + 1 - selectedDate) / daysInCurrentMonth
 
-  const moveOutRatio = currentDate / daysInCurrentMonth
+  const moveOutRatio = selectedDate / daysInCurrentMonth
+
+  const resultCurrency = result.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  })
 
   const handleCost = event => {
     setCost(event.target.value)
@@ -60,27 +65,30 @@ function App() {
           <h1>Rent Proration Calculator</h1>
 
           <div>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+           Date <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
           </div>
-
-          <input type="text" placeholder="Cost" onChange={handleCost}></input>
-
+          <div>
+          $ <input type="text" placeholder="Cost" onChange={handleCost}></input>
+          </div>
+          <div>
           <select onChange={handleMoveStatus}>
             <option value=''>Select</option>
             <option value="moveIn">Move-in</option>
             <option value="moveOut">Move-out</option>
           </select>
-
-
-          <button onClick={handleCalculate}>Calculate</button>
-
+          </div>
+          <div>
+          <button onClick={handleCalculate}>Calculate!</button>
+          </div>
+          <div id="answerDiv">
           <h2>Amount owed</h2>
-          {result}
-          <div></div>
+          <h2>{resultCurrency}</h2>
+          </div>
+     
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Button
+</button>
         </header>
-        <body>
-
-        </body>
       </div>
     );
   }
