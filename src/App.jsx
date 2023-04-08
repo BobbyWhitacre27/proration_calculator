@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import './App.css';
+// import './App.css';
 
 function App() {
   const [startDate, setStartDate] = useState(new Date());
@@ -50,13 +50,6 @@ function App() {
     }
   }
 
-  // console.log({ startDate })
-  // console.log({ currentDate })
-  // // console.log({currentMonth})
-  // // console.log({currentYear})
-  // console.log({ daysInCurrentMonth })
-  // console.log({ ratio: moveInRatio })
-
   return (
     <div className="App">
       <header className="App-header">
@@ -87,6 +80,7 @@ function App() {
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Button
         </button>
+        <h1 class="bg-red-400">Hello Tailwind!</h1>
 
       </header>
 
