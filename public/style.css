@@ -55,11 +55,33 @@ code {
   }
 }
 
-#answerDiv{
-  border: solid;
+#answerDiv {
+  /* border: solid; */
   padding-left: 5px;
   padding-right: 5px;
   margin-top: 10px;
   margin-bottom: 20px;
   border-radius: 25px;
+}
+
+.date {
+  margin-top: 20px;
+  border: solid;
+  padding: 5px;
+  margin: 5px;
+  color: black;
+}
+
+.cost {
+  border: solid;
+  padding: 5px;
+  margin: 5px;
+  color: black;
+}
+
+.select {
+  border: solid;
+  padding: 5px;
+  margin: 5px;
+  color: black;
 }
