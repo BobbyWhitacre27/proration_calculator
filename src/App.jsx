@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 function App() {
   const [startDate, setStartDate] = useState(new Date());
   const [cost, setCost] = useState(0)
-  const [moveStatus, setMoveStatus] = useState("")
+  const [moveStatus, setMoveStatus] = useState("moveIn")
   const [result, setResult] = useState(0)
 
   const getDaysInMonth = (year, month) => {
@@ -31,7 +31,11 @@ function App() {
     setCost(event.target.value)
   }
 
-  const handleMoveStatus = event => {
+  const handleMovein = event => {
+    setMoveStatus(event.target.value)
+  }
+
+  const handleMoveout = event => {
     setMoveStatus(event.target.value)
   }
 
@@ -53,37 +57,49 @@ function App() {
     <div className="App">
 
       <section class="relative flex flex-wrap lg:h-screen lg:items-center">
-        <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-         
-          <div class="mx-auto max-w-lg text-center mb-8">
-            <h1 class="text-3xl font-bold sm:text-5xl"> Rent Proration Calculator</h1>
+        <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-2">
+
+          <div class="mx-auto max-w-lg text-center mb-2">
+            <h1 class="text-3xl font-bold sm:text-3xl"> Rent Proration Calculator</h1>
+          </div>
+
+          <div id="answerDiv">
+            <h2 id="result">{resultCurrency}</h2>
           </div>
 
           <div class="text-black">
-            <DatePicker inline selected={startDate}  onChange={(date) => setStartDate(date)}  />
+            <DatePicker inline selected={startDate} onChange={(date) => setStartDate(date)} />
           </div>
 
           <div>
             <input type="text" className="cost" placeholder="Cost" onChange={handleCost}></input>
           </div>
 
-          <div>
-            <select onChange={handleMoveStatus}>
-              <option value="">M/I or M/O?</option>
-              <option value="moveIn">Move-in</option>
-              <option value="moveOut">Move-out</option>
-            </select>
+          <div id="mi-mo-buttonDiv">
+            {moveStatus === "moveIn" ? 
+            
+            <div><button id="move-in" value="moveIn" onClick={handleMovein} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+              Move-in
+            </button>
+
+            <button id="move-out-not-selected" value="moveOut" onClick={handleMoveout} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Move-out
+            </button></div> :
+
+            <div><button id="move-in-not-selected" value="moveIn" onClick={handleMovein} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Move-in
+            </button>
+
+            <button id="move-out" value="moveOut" onClick={handleMoveout} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+              Move-out
+            </button></div>}
           </div>
 
+
           <div>
-            <button onClick={handleCalculate} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button onClick={handleCalculate} id="calculateButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10">
               Calculate
             </button>
-          </div>
-
-          <div id="answerDiv">
-            
-            <h2>{resultCurrency}</h2>
           </div>
 
         </div>
@@ -96,6 +112,8 @@ function App() {
           />
         </div>
       </section>
+
+
 
 
 
